@@ -1,0 +1,92 @@
+.container-register {
+  color: #00050d;
+  margin: 20px auto;
+  display: flex;
+  width: 90%;
+  background: #ffffff;
+  flex-direction: column;
+  height: 700px;
+}
+.container-register-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 160px;
+}
+.container-formulario-register {
+  display: flex;
+  flex-direction: column;
+  width: 72%;
+  margin: 60px auto;
+  gap: 10px;
+}
+.container-email-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.container-email-text input {
+  border: none;
+  border-bottom: 1px solid #aaaaaa;
+  height: 42px;
+  margin-bottom: 16px;
+}
+.container-password {
+  display: flex;
+  gap: 10px;
+}
+.container-password input {
+  border: none;
+  border-bottom: 1px solid #aaaaaa;
+  height: 42px;
+  margin-bottom: 16px;
+  width: 50%;
+}
+.container-checkbox-register {
+  display: flex;
+
+  justify-content: space-between;
+  flex-direction: column;
+}
+#checkbox1-register {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 4px;
+  height: 20px;
+}
+#checkbox1-register h5 {
+  margin-top: 22px;
+  color: #aaaaaa;
+}
+.text-h5-01-register {
+  color: #d9cfb9;
+  text-decoration: underline;
+}
+.button-register {
+  background: #00050d;
+  color: #ffffff;
+  border: none;
+  padding: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+@media (min-width: 52rem) {
+  .container-register {
+    width: 50%;
+    align-items: center;
+  }
+  .container-checkbox-register {
+    flex-direction: row;
+    align-items: center;
+  }
+  .container-formulario-register {
+    width: 40%;
+  }
+  .text-h5-01-register {
+    margin-top: 22px;
+  }
+}
