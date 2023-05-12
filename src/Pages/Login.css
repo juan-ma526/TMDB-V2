@@ -44,6 +44,7 @@
 }
 #checkbox1 h5 {
   margin-top: 10px;
+  color: #aaaaaa;
 }
 .button-login {
   background: #00050d;
@@ -53,6 +54,10 @@
   cursor: pointer;
   font-weight: bold;
   font-size: 14px;
+}
+.text-h5-01 {
+  color: #d9cfb9;
+  text-decoration: underline;
 }
 @media (min-width: 52rem) {
   .container-login {
