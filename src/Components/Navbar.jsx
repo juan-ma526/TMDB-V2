@@ -18,10 +18,13 @@ const Navbar = () => {
             <span className="line line2"></span>
             <span className="line line3"></span>
           </button>
+
           <div className="logo-name">TMDB</div>
         </div>
         <div className="container-links">
-          <div className="link">Movies</div>
+          <Link to="/home" className="link-router">
+            <div className="link">Movies</div>
+          </Link>
           <div className="link">Series</div>
           <Link className="link-router" to="/login">
             <div className="link">Login</div>
@@ -40,7 +43,9 @@ const Navbar = () => {
           <FiSearch />
         </div>
         <div className="link">juan_ma526</div>
-        <div className="link">Movies</div>
+        <Link to="/home" className="link-router">
+          <div className="link">Movies</div>
+        </Link>
         <div className="link">Series</div>
         <Link className="link-router" to="/login">
           <div className="link">Login</div>
