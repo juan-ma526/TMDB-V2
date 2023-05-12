@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./Navbar.css";
 import { HiX } from "react-icons/hi";
 import { FiSearch } from "react-icons/fi";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
@@ -22,8 +23,12 @@ const Navbar = () => {
         <div className="container-links">
           <div className="link">Movies</div>
           <div className="link">Series</div>
-          <div className="link">Login</div>
-          <div className="link">Registro</div>
+          <Link className="link-router" to="/login">
+            <div className="link">Login</div>
+          </Link>
+          <Link className="link-router" to="/register">
+            <div className="link">Registro</div>
+          </Link>
           <div className="link">
             <FiSearch />
           </div>
@@ -37,8 +42,12 @@ const Navbar = () => {
         <div className="link">juan_ma526</div>
         <div className="link">Movies</div>
         <div className="link">Series</div>
-        <div className="link">Login</div>
-        <div className="link">Registro</div>
+        <Link className="link-router" to="/login">
+          <div className="link">Login</div>
+        </Link>
+        <Link className="link-router" to="/register">
+          <div className="link">Registro</div>
+        </Link>
         <div className="logo-icon" onClick={() => setToggle(!toggle)}>
           <HiX />
         </div>

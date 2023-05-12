@@ -1,0 +1,72 @@
+.container-login {
+  color: #00050d;
+  margin: 20px auto;
+  display: flex;
+  width: 90%;
+  background: #ffffff;
+  flex-direction: column;
+  height: 700px;
+}
+.container-login-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 160px;
+}
+
+.container-formulario {
+  display: flex;
+  flex-direction: column;
+  width: 72%;
+  margin: 60px auto;
+  gap: 10px;
+}
+.container-formulario input {
+  border: none;
+  border-bottom: 1px solid #aaaaaa;
+  height: 42px;
+  margin-bottom: 16px;
+}
+.container-checkbox {
+  display: flex;
+
+  justify-content: space-between;
+  flex-direction: column;
+}
+#checkbox1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 4px;
+  height: 20px;
+}
+#checkbox1 h5 {
+  margin-top: 10px;
+}
+.button-login {
+  background: #00050d;
+  color: #ffffff;
+  border: none;
+  padding: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+@media (min-width: 52rem) {
+  .container-login {
+    width: 50%;
+    align-items: center;
+  }
+  .container-checkbox {
+    flex-direction: row;
+    align-items: center;
+  }
+  .container-formulario {
+    width: 40%;
+  }
+  .text-h5-01 {
+    margin-top: 10px;
+  }
+}

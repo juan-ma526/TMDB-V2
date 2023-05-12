@@ -1,8 +1,15 @@
 body {
   width: 100%;
   margin: 0;
+  background: #00050d;
 }
 
 * {
   font-family: "Roboto", sans-serif;
+}
+.link-router {
+  text-decoration: none;
+}
+.link-router:active {
+  text-decoration: none;
 }
