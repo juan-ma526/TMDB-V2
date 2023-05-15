@@ -1,14 +1,81 @@
 import axios from "axios";
 import "./Home.css";
 import { useEffect, useState } from "react";
-import Slider from "../Components/Slider";
+
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+
+const handleDragStart = (e) => e.preventDefault();
+
+const renderImages = (data) => {
+  return data.map((imagen, index) => {
+    <img
+      key={index} // Agrega un atributo 'key' único para cada imagen en el mapeo
+      src={`https://image.tmdb.org/t/p/original/${imagen.poster_path}`}
+      onDragStart={handleDragStart}
+      role="presentation"
+      alt="Imagen"
+      className="item"
+    />;
+  });
+};
 
 const Home = () => {
-  //import.meta.env.VITE_MOVIE_API_KEY
   const [upcoming, setUpcoming] = useState([]);
   const [action, setAction] = useState([]);
   const [horror, setHorror] = useState([]);
   const [music, setMusic] = useState([]);
+
+  let upcomingMovies = upcoming.map((imagen, index) => (
+    <img
+      key={index} // Agrega un atributo 'key' único para cada imagen en el mapeo
+      src={`https://image.tmdb.org/t/p/original/${imagen.poster_path}`}
+      onDragStart={handleDragStart}
+      role="presentation"
+      alt="Imagen"
+      className="item"
+    />
+  ));
+
+  let actionMovies = action.map((imagen, index) => (
+    <img
+      key={index} // Agrega un atributo 'key' único para cada imagen en el mapeo
+      src={`https://image.tmdb.org/t/p/original/${imagen.poster_path}`}
+      onDragStart={handleDragStart}
+      role="presentation"
+      alt="Imagen"
+      className="item"
+    />
+  ));
+  let horrorMovies = horror.map((imagen, index) => (
+    <img
+      key={index} // Agrega un atributo 'key' único para cada imagen en el mapeo
+      src={`https://image.tmdb.org/t/p/original/${imagen.poster_path}`}
+      onDragStart={handleDragStart}
+      role="presentation"
+      alt="Imagen"
+      className="item"
+    />
+  ));
+  let musicMovies = music.map((imagen, index) => (
+    <img
+      key={index} // Agrega un atributo 'key' único para cada imagen en el mapeo
+      src={`https://image.tmdb.org/t/p/original/${imagen.poster_path}`}
+      onDragStart={handleDragStart}
+      role="presentation"
+      alt="Imagen"
+      className="item"
+    />
+  ));
+
+  const responsive = {
+    0: { items: 1 },
+    832: { items: 3 },
+
+    1080: { items: 5 },
+    1260: { items: 6 },
+    1500: { items: 7 },
+  };
 
   const options = {
     method: "GET",
@@ -17,6 +84,7 @@ const Home = () => {
       Authorization: `Bearer ${import.meta.env.VITE_MOVIE_API_KEY}`,
     },
   };
+
   useEffect(() => {
     axios
       .get(
@@ -59,15 +127,39 @@ const Home = () => {
 
   return (
     <div className="container-home">
-      Home
+      {/* Home */}
       <h1 className="text-slider">Peliculas Recomendadas</h1>
-      <Slider images={upcoming} />
+      <AliceCarousel
+        className="pruena"
+        mouseTracking
+        items={upcomingMovies}
+        responsive={responsive}
+        disableDotsControls={true}
+      />
       <h1 className="text-slider">Accion</h1>
-      <Slider images={action} />
+      <AliceCarousel
+        className="pruena"
+        mouseTracking
+        items={actionMovies}
+        responsive={responsive}
+        disableDotsControls={true}
+      />
       <h1 className="text-slider">Terror</h1>
-      <Slider images={horror} />
+      <AliceCarousel
+        className="pruena"
+        mouseTracking
+        items={horrorMovies}
+        responsive={responsive}
+        disableDotsControls={true}
+      />
       <h1 className="text-slider">Musica</h1>
-      <Slider images={music} />
+      <AliceCarousel
+        className="pruena"
+        mouseTracking
+        items={musicMovies}
+        responsive={responsive}
+        disableDotsControls={true}
+      />
     </div>
   );
 };

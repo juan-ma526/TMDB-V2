@@ -1,3 +1,27 @@
 .container-home {
   color: white;
 }
+
+.item {
+  height: 400px;
+  width: 308px;
+  text-align: center;
+  margin-left: 14%;
+
+  overflow: hidden;
+}
+.item:hover {
+  border-left: 3px solid white;
+  border-right: 3px solid white;
+
+  cursor: pointer;
+}
+@media (min-width: 52rem) {
+  .item {
+    height: 300px;
+    width: 200px;
+    text-align: center;
+    margin-left: 0;
+    overflow: hidden;
+  }
+}
