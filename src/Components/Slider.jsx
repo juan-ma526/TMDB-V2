@@ -59,8 +59,3 @@ const Slider = ({ images }) => {
 };
 
 export default Slider;
-
-/*   const data = [];
-  for (let i = 0; i < images.length; i++) {
-    data.push(images[i].poster_path);
-  } */
