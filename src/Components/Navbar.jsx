@@ -19,7 +19,9 @@ const Navbar = () => {
             <span className="line line3"></span>
           </button>
 
-          <div className="logo-name">TMDB</div>
+          <Link to="/" className="link-router">
+            <div className="logo-name">TMDB</div>
+          </Link>
         </div>
         <div className="container-links">
           <Link to="/home" className="link-router">
@@ -43,9 +45,9 @@ const Navbar = () => {
           <FiSearch />
         </div>
         <div className="link">juan_ma526</div>
-        <Link to="/home" className="link-router">
-          <div className="link">Movies</div>
-        </Link>
+        {/*   <Link to="/home" className="link-router"> */}
+        <div className="link">Movies</div>
+        {/* </Link> */}
         <div className="link">Series</div>
         <Link className="link-router" to="/login">
           <div className="link">Login</div>
