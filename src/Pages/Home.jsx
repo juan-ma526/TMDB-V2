@@ -1,9 +1,9 @@
 import axios from "axios";
 import "./Home.css";
 import { useEffect, useState } from "react";
-
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
+import { useNavigate } from "react-router-dom";
 
 const handleDragStart = (e) => e.preventDefault();
 
@@ -25,15 +25,21 @@ const Home = () => {
   const [action, setAction] = useState([]);
   const [horror, setHorror] = useState([]);
   const [music, setMusic] = useState([]);
+  const navigate = useNavigate();
 
-  let upcomingMovies = upcoming.map((imagen, index) => (
+  const handleClickMovie = (data) => {
+    navigate(`/movieDetails/${data.id}`);
+  };
+
+  let upcomingMovies = upcoming.map((imagen) => (
     <img
-      key={index} // Agrega un atributo 'key' único para cada imagen en el mapeo
+      key={imagen.id} // Agrega un atributo 'key' único para cada imagen en el mapeo
       src={`https://image.tmdb.org/t/p/original/${imagen.poster_path}`}
       onDragStart={handleDragStart}
       role="presentation"
       alt="Imagen"
       className="item"
+      onClick={(e) => handleClickMovie(imagen)}
     />
   ));
 
@@ -45,6 +51,7 @@ const Home = () => {
       role="presentation"
       alt="Imagen"
       className="item"
+      onClick={(e) => handleClickMovie(imagen)}
     />
   ));
   let horrorMovies = horror.map((imagen, index) => (
@@ -55,6 +62,7 @@ const Home = () => {
       role="presentation"
       alt="Imagen"
       className="item"
+      onClick={(e) => handleClickMovie(imagen)}
     />
   ));
   let musicMovies = music.map((imagen, index) => (
@@ -65,6 +73,7 @@ const Home = () => {
       role="presentation"
       alt="Imagen"
       className="item"
+      onClick={(e) => handleClickMovie(imagen)}
     />
   ));
 

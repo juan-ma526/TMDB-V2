@@ -1,0 +1,88 @@
+.container-movie {
+  margin-top: 82px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  width: 100%;
+}
+
+.container-movie-video {
+  border: none;
+  width: 100%;
+}
+.movie-video {
+  border: none;
+  width: 647px;
+  height: 360px;
+  margin: auto 87px;
+}
+
+.container-movie-details {
+  color: #ffffff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+.title-movie {
+  font-size: 32px;
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+.container-generos {
+  display: flex;
+  gap: 12px;
+  font-size: 24px;
+  align-items: center;
+  font-weight: 800;
+}
+
+.item-genero {
+  color: #ffffff;
+  font-size: 20px;
+}
+.title-overview {
+  margin: 2rem 2rem;
+  padding: 27px 19px;
+  font-size: 1.5rem;
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+.title-vote {
+  border-radius: 50%;
+  background: yellow;
+  color: black;
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title-vote span {
+  text-align: center;
+  font-weight: bold;
+}
+
+@media (min-width: 52rem) {
+  .container-movie {
+    flex-direction: row;
+  }
+}
+
+@keyframes slidein {
+  from {
+    margin-right: -300%;
+    width: 300%;
+    font-size: 150%;
+  }
+  to {
+    margin-right: 0%;
+    width: 100%;
+  }
+}
