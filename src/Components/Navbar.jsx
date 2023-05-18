@@ -24,10 +24,6 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="container-links">
-          <Link to="/home" className="link-router">
-            <div className="link">Movies</div>
-          </Link>
-          <div className="link">Series</div>
           <Link className="link-router" to="/login">
             <div className="link">Login</div>
           </Link>
@@ -46,14 +42,12 @@ const Navbar = () => {
           <FiSearch />
         </div>
         <div className="link">juan_ma526</div>
-        {/*   <Link to="/home" className="link-router"> */}
-        <div className="link" onClick={() => setToggle(!toggle)}>
-          Movies
-        </div>
-        {/* </Link> */}
-        <div className="link" onClick={() => setToggle(!toggle)}>
-          Series
-        </div>
+        <Link to="/" className="link-router">
+          <div className="link" onClick={() => setToggle(!toggle)}>
+            Home
+          </div>
+        </Link>
+
         <Link className="link-router" to="/login">
           <div className="link" onClick={() => setToggle(!toggle)}>
             Login

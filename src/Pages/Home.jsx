@@ -25,12 +25,20 @@ const Home = () => {
   const [action, setAction] = useState([]);
   const [horror, setHorror] = useState([]);
   const [music, setMusic] = useState([]);
+  const [seriePopular, setSeriePopular] = useState([]);
+  const [serieAnimation, setSerieAnimation] = useState([]);
+  const [serieDrama, setSerieDrama] = useState([]);
+  const [serieComedia, setSerieComedia] = useState([]);
   const navigate = useNavigate();
 
   const handleClickMovie = (data) => {
     navigate(`/movieDetails/${data.id}`);
   };
+  const handleClickSerie = (data) => {
+    navigate(`/serieDetails/${data.id}`);
+  };
 
+  // Peliculas
   let upcomingMovies = upcoming.map((imagen) => (
     <img
       key={imagen.id} // Agrega un atributo 'key' único para cada imagen en el mapeo
@@ -74,6 +82,53 @@ const Home = () => {
       alt="Imagen"
       className="item"
       onClick={(e) => handleClickMovie(imagen)}
+    />
+  ));
+  //Series
+
+  let popularSeries = seriePopular.map((imagen, index) => (
+    <img
+      key={index} // Agrega un atributo 'key' único para cada imagen en el mapeo
+      src={`https://image.tmdb.org/t/p/original/${imagen.poster_path}`}
+      onDragStart={handleDragStart}
+      role="presentation"
+      alt="Imagen"
+      className="item"
+      onClick={(e) => handleClickSerie(imagen)}
+    />
+  ));
+  let animationSeries = serieAnimation.map((imagen, index) => (
+    <img
+      key={index} // Agrega un atributo 'key' único para cada imagen en el mapeo
+      src={`https://image.tmdb.org/t/p/original/${imagen.poster_path}`}
+      onDragStart={handleDragStart}
+      role="presentation"
+      alt="Imagen"
+      className="item"
+      onClick={(e) => handleClickSerie(imagen)}
+    />
+  ));
+
+  let dramaSeries = serieDrama.map((imagen, index) => (
+    <img
+      key={index} // Agrega un atributo 'key' único para cada imagen en el mapeo
+      src={`https://image.tmdb.org/t/p/original/${imagen.poster_path}`}
+      onDragStart={handleDragStart}
+      role="presentation"
+      alt="Imagen"
+      className="item"
+      onClick={(e) => handleClickSerie(imagen)}
+    />
+  ));
+  let comedySeries = serieComedia.map((imagen, index) => (
+    <img
+      key={index} // Agrega un atributo 'key' único para cada imagen en el mapeo
+      src={`https://image.tmdb.org/t/p/original/${imagen.poster_path}`}
+      onDragStart={handleDragStart}
+      role="presentation"
+      alt="Imagen"
+      className="item"
+      onClick={(e) => handleClickSerie(imagen)}
     />
   ));
 
@@ -134,6 +189,48 @@ const Home = () => {
       .then((response) => setMusic(response.results));
   }, []);
 
+  // Series
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://api.themoviedb.org/3/tv/popular?language=en-US&page=1",
+        options
+      )
+      .then((response) => response.data)
+      .then((response) => setSeriePopular(response.results));
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=35",
+        options
+      )
+      .then((response) => response.data)
+      .then((response) => setSerieComedia(response.results));
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=18",
+        options
+      )
+      .then((response) => response.data)
+      .then((response) => setSerieDrama(response.results));
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=16",
+        options
+      )
+      .then((response) => response.data)
+      .then((response) => setSerieAnimation(response.results));
+  }, []);
+
   return (
     <div className="container-home">
       {/* Home */}
@@ -166,6 +263,38 @@ const Home = () => {
         className="pruena"
         mouseTracking
         items={musicMovies}
+        responsive={responsive}
+        disableDotsControls={true}
+      />
+      <h1 className="text-slider">Series Populares</h1>
+      <AliceCarousel
+        className="pruena"
+        mouseTracking
+        items={popularSeries}
+        responsive={responsive}
+        disableDotsControls={true}
+      />
+      <h1 className="text-slider">Animacion</h1>
+      <AliceCarousel
+        className="pruena"
+        mouseTracking
+        items={animationSeries}
+        responsive={responsive}
+        disableDotsControls={true}
+      />
+      <h1 className="text-slider">Drama</h1>
+      <AliceCarousel
+        className="pruena"
+        mouseTracking
+        items={dramaSeries}
+        responsive={responsive}
+        disableDotsControls={true}
+      />
+      <h1 className="text-slider">Comedia</h1>
+      <AliceCarousel
+        className="pruena"
+        mouseTracking
+        items={comedySeries}
         responsive={responsive}
         disableDotsControls={true}
       />

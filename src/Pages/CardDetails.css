@@ -12,9 +12,8 @@
 }
 .movie-video {
   border: none;
-  width: 647px;
+  width: 100%;
   height: 360px;
-  margin: auto 87px;
 }
 
 .container-movie-details {
@@ -38,6 +37,7 @@
   font-size: 24px;
   align-items: center;
   font-weight: 800;
+  flex-wrap: wrap;
 }
 
 .item-genero {
