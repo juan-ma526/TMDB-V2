@@ -30,17 +30,21 @@ const Navbar = () => {
           <Link className="link-router" to="/register">
             <div className="link">Registro</div>
           </Link>
-          <div className="link">
-            <FiSearch />
-          </div>
+          <Link to="search" className="link-router">
+            <div className="link">
+              <FiSearch />
+            </div>
+          </Link>
           <div className="link">juan_ma526</div>
         </div>
       </div>
       {/* vista mobile*/}
       <div className={toggle ? "open" : "close"}>
-        <div className="link">
-          <FiSearch />
-        </div>
+        <Link to="search" className="link-router">
+          <div className="link" onClick={() => setToggle(!toggle)}>
+            <FiSearch />
+          </div>
+        </Link>
         <div className="link">juan_ma526</div>
         <Link to="/" className="link-router">
           <div className="link" onClick={() => setToggle(!toggle)}>
