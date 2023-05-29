@@ -1,7 +1,21 @@
+import axios from "axios";
 import "./Login.css";
 import { BiLogIn } from "react-icons/bi";
+import { useEffect, useState } from "react";
 
 const Login = () => {
+  const [usuarios, setUsuarios] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://tmdb-v2-app-backend.onrender.com/api/user", {
+        withCredentials: true,
+        credentials: "include",
+      })
+      .then((response) => setUsuarios(response.data));
+  }, []);
+  console.log(usuarios);
+
   return (
     <div className="container-login">
       <div className="container-login-header">
