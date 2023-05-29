@@ -148,7 +148,7 @@ const Home = () => {
       Authorization: `Bearer ${import.meta.env.VITE_MOVIE_API_KEY}`,
     },
   };
-  console.log(process.env.VITE_MOVIE_API_KEY);
+
   useEffect(() => {
     axios
       .get(
