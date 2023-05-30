@@ -10,11 +10,10 @@ const Login = () => {
     axios
       .get("https://tmdb-v2-app-backend.onrender.com/api/user", {
         withCredentials: true,
-        credentials: "include",
       })
       .then((response) => setUsuarios(response.data));
   }, []);
-  console.log(usuarios);
+  console.log(usuarios, "usuarios");
 
   return (
     <div className="container-login">

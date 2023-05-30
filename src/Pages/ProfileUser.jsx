@@ -1,6 +1,9 @@
 import "./ProfileUser.css";
 import image1 from "../assets/groot.jpg";
 import image2 from "../assets/racoon.jpg";
+import image3 from "../assets/drax.jpg";
+import image4 from "../assets/gamorra.jpg";
+import image5 from "../assets/star lord.jpg";
 import { useState } from "react";
 
 function ProfileUser() {
@@ -40,6 +43,21 @@ function ProfileUser() {
               src={image2}
               alt="Imagen 2"
               onClick={() => handleImageSelection(image2)}
+            />
+            <img
+              src={image3}
+              alt="Imagen 3"
+              onClick={() => handleImageSelection(image3)}
+            />
+            <img
+              src={image4}
+              alt="Imagen 4"
+              onClick={() => handleImageSelection(image4)}
+            />
+            <img
+              src={image5}
+              alt="Imagen 5"
+              onClick={() => handleImageSelection(image5)}
             />
             {/* Agrega las demás imágenes con eventos de selección */}
           </div>
