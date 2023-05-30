@@ -1,0 +1,91 @@
+.container-Profile {
+  margin: 125px auto;
+  height: 685px;
+  width: 70%;
+  left: 15%;
+  background: inherit;
+  border-radius: 15px;
+  border: 1px solid rgba(43, 43, 43, 0.568);
+  position: absolute;
+  display: flex;
+  gap: 36px;
+  z-index: 101;
+}
+
+/* .container-Profile::before {
+  position: absolute;
+  content: "";
+  background: inherit;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 0 3000px rgba(150, 150, 150, 0.192);
+  filter: blur(10px);
+  border-radius: 15px;
+} */
+
+.container-Profile-card {
+  background: white;
+  width: 40%;
+  margin: 31px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.card {
+  height: 40%;
+  width: 100%;
+}
+.card img {
+  height: 100%;
+  width: 100%;
+}
+.profile-items {
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+.item-profile {
+  padding: 10px 15px 10px 15px;
+  width: 70%;
+  margin: 20px auto;
+  border: none;
+  border-bottom: 1px solid black;
+  color: gray;
+}
+
+.container-Favorites-Movies {
+  background: white;
+  width: 56%;
+  margin: 31px;
+  border-radius: 15px;
+}
+
+.image-picker {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  gap: 16px;
+}
+.image-picker img {
+  height: 50px;
+}
+.btn-change {
+  border-radius: 15px;
+  margin: 15px auto;
+  width: 50%;
+  padding: 5px 15px 5px 15px;
+  background: rgb(255, 126, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 126, 0, 1) 0%,
+    rgba(255, 116, 32, 1) 50%,
+    rgba(236, 7, 9, 1) 100%
+  );
+  border: none;
+  color: white;
+  cursor: pointer;
+}

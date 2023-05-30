@@ -7,6 +7,7 @@ import Home from "./Pages/Home";
 import CardDetails from "./Pages/CardDetails";
 import CardSerieDetails from "./Pages/CardSerieDetails";
 import SearchPage from "./Pages/SearchPage";
+import ProfileUser from "./Pages/ProfileUser";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/movieDetails/:id" element={<CardDetails />} />
         <Route path="/serieDetails/:id" element={<CardSerieDetails />} />
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/profile" element={<ProfileUser />} />
       </Routes>
     </div>
   );

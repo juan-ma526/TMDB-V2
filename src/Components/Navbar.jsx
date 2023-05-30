@@ -35,7 +35,9 @@ const Navbar = () => {
               <FiSearch />
             </div>
           </Link>
-          <div className="link">juan_ma526</div>
+          <Link className="link-router" to="/profile">
+            <div className="link">juan_ma526</div>
+          </Link>
         </div>
       </div>
       {/* vista mobile*/}
