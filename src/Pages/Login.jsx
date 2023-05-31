@@ -9,6 +9,7 @@ const Login = () => {
   useEffect(() => {
     axios
       .get("https://tmdb-v2-app-backend.onrender.com/api/user", {
+        headers: { "Content-Type": "application/json" },
         withCredentials: true,
       })
       .then((response) => setUsuarios(response.data));
