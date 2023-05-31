@@ -59,11 +59,81 @@ function ProfileUser() {
               alt="Imagen 5"
               onClick={() => handleImageSelection(image5)}
             />
-            {/* Agrega las demás imágenes con eventos de selección */}
           </div>
         )}
       </div>
-      <div className="container-Favorites-Movies"></div>
+      <div className="container-Favorites-Movies">
+        <h2 className="table-title">Peliculas Favoritas</h2>
+        <ul className="responsive-table">
+          <li className="table-header">
+            <div className="col col-1">Id</div>
+            <div className="col col-2">Nombre</div>
+            <div className="col col-3">Puntaje</div>
+            <div className="col col-4"></div>
+          </li>
+          <li className="table-row">
+            <div className="col col-1" data-label="Job Id">
+              42235
+            </div>
+            <div className="col col-2" data-label="Customer Name">
+              John Wick 4
+            </div>
+            <div className="col col-3" data-label="Amount">
+              7.45
+            </div>
+            <button
+              className="col col-4 btn-delete"
+              data-label="Payment Status"
+            >
+              Eliminar
+            </button>
+          </li>
+          <li className="table-row">
+            <div className="col col-1" data-label="Job Id">
+              42442
+            </div>
+            <div className="col col-2" data-label="Customer Name">
+              X-Men
+            </div>
+            <div className="col col-3" data-label="Amount">
+              8.35
+            </div>
+            <button
+              className="col col-4 btn-delete"
+              data-label="Payment Status"
+            >
+              Eliminar
+            </button>
+          </li>
+        </ul>
+
+        {/*  <table className="table-favorites-Movies">
+          <caption>Películas Favoritas</caption>
+          <thead>
+            <tr className="table-fila">
+              <th>Nombre</th>
+              <th>Puntaje</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="table-fila">
+              <td className="table-item">Nombre de la película 1</td>
+              <td className="table-item">8.5</td>
+              <td className="table-item">
+                <button>Eliminar</button>
+              </td>
+            </tr>
+            <tr className="table-fila">
+              <td className="table-item">Nombre de la película 2</td>
+              <td className="table-item">7.9</td>
+              <td className="table-item">
+                <button>Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table> */}
+      </div>
     </div>
   );
 }

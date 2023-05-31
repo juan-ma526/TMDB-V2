@@ -1,18 +1,18 @@
 .container-Profile {
   margin: 125px auto;
-  height: 685px;
-  width: 70%;
-  left: 15%;
+  width: 85%;
+  /*  left: 15%; */
   background: inherit;
   border-radius: 15px;
   border: 1px solid rgba(43, 43, 43, 0.568);
-  position: absolute;
+  position: relative;
   display: flex;
+  flex-direction: column;
   gap: 36px;
-  z-index: 101;
+  z-index: 100;
 }
 
-/* .container-Profile::before {
+.container-Profile::before {
   position: absolute;
   content: "";
   background: inherit;
@@ -23,12 +23,12 @@
   box-shadow: inset 0 0 0 3000px rgba(150, 150, 150, 0.192);
   filter: blur(10px);
   border-radius: 15px;
-} */
+  z-index: -1;
+}
 
 .container-Profile-card {
   background: white;
-  width: 40%;
-  margin: 31px;
+  margin: 4px;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -59,16 +59,73 @@
 
 .container-Favorites-Movies {
   background: white;
-  width: 56%;
-  margin: 31px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: #f9fdfe;
+  margin: 4px;
   border-radius: 15px;
 }
+.table-title {
+  font-size: 26px;
+  margin: 20px 0;
+  text-align: center;
+}
 
+.responsive-table li {
+  border-radius: 3px;
+  /* padding: 15px 20px; */
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  gap: 6px;
+}
+.table-header {
+  /* background-color: #95a5a6; */
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.table-row {
+  background-color: #ffffff;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+}
+.col-1 {
+  flex-basis: 10%;
+  margin-right: 16px;
+}
+.col-2 {
+  flex-basis: 40%;
+}
+.col-3 {
+  flex-basis: 25%;
+}
+.col-4 {
+  flex-basis: 25%;
+}
+.btn-delete {
+  font-weight: bold;
+  border-radius: 15px;
+  padding: 5px 15px 5px 15px;
+  background: rgb(255, 126, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 126, 0, 1) 0%,
+    rgba(255, 116, 32, 1) 50%,
+    rgba(236, 7, 9, 1) 100%
+  );
+  border: none;
+  color: white;
+  cursor: pointer;
+}
 .image-picker {
   height: 100%;
   width: 100%;
   display: flex;
   gap: 16px;
+  margin: 10px;
+  flex-wrap: wrap;
 }
 .image-picker img {
   height: 50px;
@@ -88,4 +145,24 @@
   border: none;
   color: white;
   cursor: pointer;
+}
+
+@media (min-width: 52rem) {
+  .container-Profile {
+    flex-direction: row;
+  }
+
+  .container-Profile-card {
+    width: 40%;
+    margin: 31px;
+  }
+
+  .container-Favorites-Movies {
+    width: 56%;
+    margin: 31px;
+  }
+
+  .responsive-table li {
+    padding: 15px 20px;
+  }
 }
