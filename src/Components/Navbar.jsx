@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./Navbar.css";
 import { HiX } from "react-icons/hi";
 import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
+
 const Navbar = () => {
+  const { user, setUser } = useContext(UserContext);
   const [toggle, setToggle] = useState(false);
+  const [menuOpen, setMenuOpen] = useState("open-menu");
+
+  const handleLogout = () => {
+    setUser(null); // Elimina el usuario del estado del contexto
+  };
 
   return (
     <div>
@@ -25,10 +33,10 @@ const Navbar = () => {
         </div>
         <div className="container-links">
           <Link className="link-router" to="/login">
-            <div className="link">Login</div>
+            <div className="link">{user ? "" : "Login"}</div>
           </Link>
           <Link className="link-router" to="/register">
-            <div className="link">Registro</div>
+            <div className="link">{user ? "" : "Registro"}</div>
           </Link>
           <Link to="search" className="link-router">
             <div className="link">
@@ -36,8 +44,19 @@ const Navbar = () => {
             </div>
           </Link>
           <Link className="link-router" to="/profile">
-            <div className="link">juan_ma526</div>
+            <div className="link" onClick={() => setMenuOpen(!menuOpen)}>
+              {user ? user.name : "Profile"}
+            </div>
           </Link>
+        </div>
+        <div className={menuOpen ? "sub-menu-wrap open-menu" : "sub-menu-wrap"}>
+          <div className="sub-menu" onClick={handleLogout}>
+            <Link className="link-router" to="/">
+              <div className="user-info">
+                <h4>Logout</h4>
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
       {/* vista mobile*/}
@@ -47,7 +66,7 @@ const Navbar = () => {
             <FiSearch />
           </div>
         </Link>
-        <div className="link">juan_ma526</div>
+        <div className="link">{user ? user.name : "Profile"}</div>
         <Link to="/" className="link-router">
           <div className="link" onClick={() => setToggle(!toggle)}>
             Home
@@ -56,12 +75,17 @@ const Navbar = () => {
 
         <Link className="link-router" to="/login">
           <div className="link" onClick={() => setToggle(!toggle)}>
-            Login
+            {user ? "" : "Login"}
+          </div>
+        </Link>
+        <Link className="link-router" to="/">
+          <div className="link" onClick={() => setToggle(!toggle)}>
+            Logout
           </div>
         </Link>
         <Link className="link-router" to="/register">
           <div className="link" onClick={() => setToggle(!toggle)}>
-            Registro
+            {user ? "" : "Registro"}
           </div>
         </Link>
         <div className="logo-icon" onClick={() => setToggle(!toggle)}>

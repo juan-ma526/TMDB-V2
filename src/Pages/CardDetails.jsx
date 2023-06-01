@@ -65,6 +65,7 @@ const CardDetails = () => {
         <div className="title-vote">
           <span>{movie.vote_average}</span>
         </div>
+        <button className="btn-addFavorites">Agregar a Favoritos</button>
       </div>
     </div>
   );

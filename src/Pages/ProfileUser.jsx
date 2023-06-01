@@ -4,9 +4,13 @@ import image2 from "../assets/racoon.jpg";
 import image3 from "../assets/drax.jpg";
 import image4 from "../assets/gamorra.jpg";
 import image5 from "../assets/star lord.jpg";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "../context/UserContext";
 
 function ProfileUser() {
+  const { user } = useContext(UserContext);
+  const [email, setEmail] = useState(user ? user.email : "");
+  const [name, setName] = useState(user ? user.name : "");
   const [showImagePicker, setShowImagePicker] = useState(false);
   const [selectedAvatar, setSelectedAvatar] = useState(image1);
 
@@ -25,9 +29,15 @@ function ProfileUser() {
           <input
             className="item-profile"
             type="text"
-            value="email@jasdja.com"
+            defaultValue={email}
+            disabled
           />
-          <input className="item-profile" type="text" value="nombre usuario" />
+          <input
+            className="item-profile"
+            type="text"
+            defaultValue={name}
+            disabled
+          />
         </div>
         <button className="btn-change" onClick={() => setShowImagePicker(true)}>
           Cambiar

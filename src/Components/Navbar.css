@@ -104,6 +104,35 @@
   cursor: pointer;
   border-bottom: 2px solid #ffffff;
 }
+.sub-menu-wrap {
+  position: absolute;
+  top: 100%;
+  right: 0%;
+  width: 145px;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+.sub-menu-wrap.open-menu {
+  max-height: 400px;
+}
+.sub-menu {
+  background: #fff;
+  padding: 10px;
+}
+
+.user-info {
+  text-align: center;
+}
+.user-info h4 {
+  font-weight: 500;
+}
+.user-info h4:hover,
+.user-info h4:active {
+  font-weight: bold;
+  cursor: pointer;
+}
+
 @media (min-width: 52rem) {
   .container-links {
     display: flex;

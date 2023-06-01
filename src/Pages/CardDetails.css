@@ -59,19 +59,46 @@
   width: 60px;
   position: absolute;
   bottom: -20px;
-  left: 50%;
+  left: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .title-vote span {
   text-align: center;
   font-weight: bold;
+}
+.btn-addFavorites {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  cursor: pointer;
+  background: yellow;
+  font-weight: bold;
+  border-radius: 15px;
+  padding: 5px 15px 5px 15px;
+  background: rgb(255, 126, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 126, 0, 1) 0%,
+    rgba(255, 116, 32, 1) 50%,
+    rgba(236, 7, 9, 1) 100%
+  );
+  border: none;
+  color: white;
+}
+.btn-addFavorites:hover,
+.btn-addFavorites:active {
+  border: 1px solid white;
 }
 
 @media (min-width: 52rem) {
   .container-movie {
     flex-direction: row;
+  }
+  .title-vote {
+    left: 50%;
   }
 }
 
