@@ -4,6 +4,7 @@ import { HiX } from "react-icons/hi";
 import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+import { GoX } from "react-icons/go";
 
 const Navbar = () => {
   const { user, setUser } = useContext(UserContext);
@@ -45,17 +46,21 @@ const Navbar = () => {
           </Link>
           <Link className="link-router" to="/profile">
             <div className="link" onClick={() => setMenuOpen(!menuOpen)}>
-              {user ? user.name : "Profile"}
+              {user ? user.name : ""}
             </div>
           </Link>
         </div>
         <div className={menuOpen ? "sub-menu-wrap open-menu" : "sub-menu-wrap"}>
-          <div className="sub-menu" onClick={handleLogout}>
-            <Link className="link-router" to="/">
-              <div className="user-info">
-                <h4>Logout</h4>
-              </div>
-            </Link>
+          <div className="sub-menu">
+            <div className="user-info">
+              <Link className="link-router" to="/">
+                <h4 onClick={handleLogout}>Logout</h4>
+              </Link>
+              <GoX
+                className="user-info-icon"
+                onClick={() => setMenuOpen(!menuOpen)}
+              />
+            </div>
           </div>
         </div>
       </div>

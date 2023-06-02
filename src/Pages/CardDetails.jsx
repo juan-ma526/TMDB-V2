@@ -1,14 +1,35 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./CardDetails.css";
+import { UserContext } from "../context/UserContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CardDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState([]);
   const [movieVideo, setMovieVideo] = useState([]);
   const [generos, setGeneros] = useState([]);
-
+  const { user } = useContext(UserContext);
+  const movieData = {
+    movieId: movie.id,
+    nameMovie: movie.title,
+    overview: movie.overview,
+    frontImage: movie.poster_path,
+  };
+  const [prueba, setPrueba] = useState([]);
+  const notify = () =>
+    toast.success("🚀 Pelicula Agregada a Favoritos", {
+      position: "bottom-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   const options = {
     method: "GET",
     headers: {
@@ -36,6 +57,20 @@ const CardDetails = () => {
       .then((response) => response.data)
       .then((response) => setMovieVideo(response.results[0].key));
   }, []);
+
+  const handleSubmit = (e) => {
+    axios
+      .post(
+        "https://tmdb-v2-app-backend.onrender.com/api/user/addMovie",
+        { userId: user.id, movie: movieData },
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      )
+      .then(() => notify())
+      .catch((error) => console.log(error));
+  };
 
   return (
     <div className="container-movie">
@@ -65,8 +100,22 @@ const CardDetails = () => {
         <div className="title-vote">
           <span>{movie.vote_average}</span>
         </div>
-        <button className="btn-addFavorites">Agregar a Favoritos</button>
+        <button onClick={handleSubmit} className="btn-addFavorites">
+          Agregar a Favoritos
+        </button>
       </div>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 };

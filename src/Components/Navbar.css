@@ -87,11 +87,6 @@
 
 .container-links {
   display: none;
-  /* width: 80%;
-  justify-content: flex-end;
-  gap: 20px;
-  height: 3.5rem;
-  align-items: center; */
 }
 .link {
   padding: 1rem;
@@ -123,6 +118,10 @@
 
 .user-info {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 33px;
 }
 .user-info h4 {
   font-weight: 500;
@@ -130,6 +129,12 @@
 .user-info h4:hover,
 .user-info h4:active {
   font-weight: bold;
+  cursor: pointer;
+}
+.user-info-icon:hover,
+.user-info-icon:active {
+  font-weight: bold;
+  color: black;
   cursor: pointer;
 }
 
