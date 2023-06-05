@@ -100,7 +100,12 @@ const CardDetails = () => {
         <div className="title-vote">
           <span>{movie.vote_average}</span>
         </div>
-        <button onClick={handleSubmit} className="btn-addFavorites">
+        <button
+          onClick={handleSubmit}
+          className={
+            user ? "btn-addFavorites" : "btn-disabled"
+          } /* className="btn-addFavorites" */
+        >
           Agregar a Favoritos
         </button>
       </div>

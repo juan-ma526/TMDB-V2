@@ -34,10 +34,20 @@ const Navbar = () => {
         </div>
         <div className="container-links">
           <Link className="link-router" to="/login">
-            <div className="link">{user ? "" : "Login"}</div>
+            <div
+              className={user ? "link-login" : "link"} /* className="link" */
+            >
+              {user ? "" : "Login"}
+            </div>
           </Link>
           <Link className="link-router" to="/register">
-            <div className="link">{user ? "" : "Registro"}</div>
+            <div
+              className={
+                user ? "link-register" : "link"
+              } /*  className="link" */
+            >
+              {user ? "" : "Registro"}
+            </div>
           </Link>
           <Link to="search" className="link-router">
             <div className="link">
@@ -45,7 +55,10 @@ const Navbar = () => {
             </div>
           </Link>
           <Link className="link-router" to="/profile">
-            <div className="link" onClick={() => setMenuOpen(!menuOpen)}>
+            <div
+              className={user ? "link" : "link-user"}
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
               {user ? user.name : ""}
             </div>
           </Link>
